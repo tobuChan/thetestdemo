@@ -1,3 +1,4 @@
+//最初的格式demo
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,16 +27,6 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
-      child: Text(
-        '你好，flutter001',
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 40.0,
-          color: Colors.red,
-          //color: Color.fromRGBO(222, 211, 212, 0.5),
-        ),
-      ),
-    );
+    return Text('xxx');
   }
 }

@@ -1,11 +1,11 @@
-//动态列表
+//最初的格式demo
 import 'package:flutter/material.dart';
-import 'res/listData.dart';
 
-main() {
+void main() {
   runApp(MyApp());
 }
 
+//自定义组件
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,42 +13,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('fluttr demo'),
+          title: Text('Flutter demo'),
         ),
         body: HomeContent(),
       ),
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(primarySwatch: Colors.yellow),
     );
   }
 }
 
+//
 class HomeContent extends StatelessWidget {
-  //自定义方法
-  // List<Widget> _getData() {
-  //   List<Widget> list = new List();
-  //   for (var i = 0; i < 20; i++) {
-  //     list.add(ListTile(
-  //       title: Text('我是$i个列表'),
-  //     ));
-  //   }
-  //   return list;
-  // }
-
-  //引入外部数据(动态列表)
-  List<Widget> _getData() {
-    var tempList = listDate.map((value) {
-      return ListTile(
-        leading: Image.network(value['imageUrl']),
-        title: Text(value['title']),
-        subtitle: Text(value['author']),
-      );
-    });
-    return tempList.toList();
-  }
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return ListView(children: this._getData());
+    return GridView.count(
+      crossAxisCount: 2,
+      children: <Widget>[
+        Image.network('https://www.itying.com/images/flutter/1.png'),
+      ],
+    );
   }
 }
