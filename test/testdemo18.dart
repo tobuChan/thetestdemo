@@ -1,4 +1,4 @@
-//改变页面数据
+//有状态组件StatefulWidget和setData()方法
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//有状态组件StatefulWidget
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -30,25 +31,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List list = new List();
+  int countNum = 0;
+
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: <Widget>[
-        Column(
-            children: this.list.map((value) {
-          return ListTile(
-            title: Text(value),
-          );
-        }).toList()),
-        SizedBox(
-          height: 20,
+        SizedBox(height: 200),
+        Chip(
+          label: Text('${this.countNum}'),
         ),
         RaisedButton(
           onPressed: () {
             setState(() {
-              this.list.add('新增数据1');
-              this.list.add('新增数据2');
+              //只有有状态组件有这个方法
+              this.countNum++;
             });
           },
           child: Text('按钮'),
